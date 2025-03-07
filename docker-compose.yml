@@ -6,6 +6,8 @@ services:
     restart: always
     ports:
       - "8081:8081"
+    environment:
+      EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE: http://eureka-server:8761/eureka/
     networks:
       - miw
 
@@ -13,5 +15,4 @@ networks:
   miw:
     external: true
 
-
-#> docker compose --build -d --no-recreate
+#> docker compose up --build -d
