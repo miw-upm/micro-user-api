@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    image: user-api:v1
+    container_name: user-api
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - miw
+
+networks:
+  miw:
+    external: true
+
+
+#> docker compose -p kafka up --build -d --no-recreate
