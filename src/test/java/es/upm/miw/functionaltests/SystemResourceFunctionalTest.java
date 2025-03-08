@@ -1,7 +1,6 @@
 package es.upm.miw.functionaltests;
 
 import es.upm.miw.resources.SystemResource;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,9 +26,10 @@ class SystemResourceFunctionalTest {
     private String baseUrl;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         this.baseUrl = "http://localhost:" + port;
     }
+
     @Test
     void testReadBadge() {
         String url = this.baseUrl + SystemResource.VERSION_BADGE;
