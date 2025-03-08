@@ -1,6 +1,6 @@
 package es.upm.miw.functionaltests;
 
-import es.upm.miw.models.User;
+import es.upm.miw.data.models.User;
 import es.upm.miw.resources.UserResource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
