@@ -1,6 +1,7 @@
-package es.upm.miw.rest;
+package es.upm.miw.resources;
 
-import es.upm.miw.rest.exceptionshandler.NotFoundException;
+import es.upm.miw.resources.exceptionshandler.NotFoundException;
+import es.upm.miw.models.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

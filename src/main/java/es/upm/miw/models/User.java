@@ -1,4 +1,4 @@
-package es.upm.miw.rest;
+package es.upm.miw.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

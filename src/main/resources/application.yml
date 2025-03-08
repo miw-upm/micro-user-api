@@ -1,8 +1,10 @@
 spring:
   application:
-    name: api-user
+    name: micro-user-api
   profiles:
+# Profile ------------
     active: dev
+# --------------------
   output:
     ansi:
       enabled: ALWAYS
@@ -16,12 +18,6 @@ info:
     artifact: "@project.artifactId@"
     version: "@project.version@"
     build: "@maven.build.timestamp@"
-
-logging:
-  level:
-    root: WARN
-    es.upm.miw: DEBUG
-
 management:
   endpoints:
     web:
@@ -31,12 +27,17 @@ management:
     env:
       enabled: true
 
+logging:
+  level:
+    root: WARN
+    es.upm.miw: DEBUG
+
 eureka:
   instance:
-    lease-renewal-interval-in-seconds: 20  # Enviar heartbeats cada 10s
-    lease-expiration-duration-in-seconds: 60  # Expirar si en 60s no recibe heartbeats
-    instance-id: ${spring.application.name}:${server.port}  # 🔹 Define un ID legible
-    prefer-ip-address: true  # 🔹 Usa IP en lugar de hostname
+    lease-renewal-interval-in-seconds: 20
+    lease-expiration-duration-in-seconds: 60
+    instance-id: ${spring.application.name}:${server.port}
+    prefer-ip-address: true
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/

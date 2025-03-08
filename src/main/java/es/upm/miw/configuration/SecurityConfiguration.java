@@ -1,4 +1,4 @@
-package es.upm.miw;
+package es.upm.miw.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,8 @@
 package es.upm.miw.functionaltests;
 
-import es.upm.miw.rest.SystemResource;
+import es.upm.miw.resources.SystemResource;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,33 +20,34 @@ import static org.springframework.http.HttpStatus.OK;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 class SystemResourceFunctionalTest {
-
     @LocalServerPort
     private int port;
-
     @Autowired
     private TestRestTemplate restTemplate;
+    private String baseUrl;
 
+    @BeforeEach
+    void setUp(){
+        this.baseUrl = "http://localhost:" + port;
+    }
     @Test
     void testReadBadge() {
-        String url = "http://localhost:" + port + SystemResource.VERSION_BADGE;
+        String url = this.baseUrl + SystemResource.VERSION_BADGE;
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
-        String body = response.getBody();
-        assertThat(body)
+        assertThat(response.getBody())
                 .isNotNull()
                 .startsWith("<svg");
     }
 
     @Test
     void testReadInfo() {
-        String url = "http://localhost:" + port + "/";
+        String url = this.baseUrl + "/";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
         assertThat(response.getStatusCode()).isEqualTo(OK);
-        String body = response.getBody();
-        assertThat(body)
+        assertThat(response.getBody())
                 .isNotNull()
                 .isNotEmpty();
     }
