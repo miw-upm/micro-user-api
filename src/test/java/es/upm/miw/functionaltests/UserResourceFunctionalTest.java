@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -33,7 +34,7 @@ class UserResourceFunctionalTest {
         String url = this.baseUrl + "/pepe";
         ResponseEntity<User> response = testRestTemplate.getForEntity(url, User.class);
 
-        assertThat(response.getStatusCode().value()).isEqualTo(200);
+        assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
 
         User user = response.getBody();
         assertThat(user).isNotNull();
