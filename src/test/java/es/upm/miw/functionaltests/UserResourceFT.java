@@ -32,7 +32,7 @@ class UserResourceFT {
     @Test
     void testReadByIdentityNotFound() {
         assertThat(this.testRestTemplate
-                .getForEntity(UserResource.IDENTITY_ID, User.class,"none")
+                .getForEntity(UserResource.IDENTITY_ID, User.class, "none")
                 .getStatusCode())
                 .isEqualTo(HttpStatus.NOT_FOUND);
     }
