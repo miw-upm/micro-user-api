@@ -16,7 +16,7 @@ import static org.springframework.http.HttpStatus.OK;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-class SystemResourceFunctionalTest {
+class SystemResourceFT {
     @Autowired
     private TestRestTemplate restTemplate;
 
